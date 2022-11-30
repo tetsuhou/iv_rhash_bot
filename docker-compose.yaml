@@ -1,0 +1,9 @@
+services:
+  iv_rhash_bot:
+    image: iv_rhash_bot:alpha
+    restart: always
+    environment:
+      BOT_TOKEN: ${BOT_TOKEN}
+    volumes:
+      - ./date/:/data/
+
