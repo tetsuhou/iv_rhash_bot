@@ -18,5 +18,4 @@ RUN cargo build --target x86_64-unknown-linux-musl --release
 
 FROM scratch
 COPY --from=builder /usr/src/iv_rhash_bot/target/x86_64-unknown-linux-musl/release/iv_rhash_bot .
-USER 1000
 CMD ["./iv_rhash_bot"]
