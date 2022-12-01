@@ -5,5 +5,5 @@ services:
     environment:
       BOT_TOKEN: ${BOT_TOKEN}
     volumes:
-      - ./date/:/data/
+      - ./data/:/data/
 
