@@ -1,6 +1,6 @@
 services:
   iv_rhash_bot:
-    image: iv_rhash_bot:alpha
+    image: ghcr.io/tetsuhou/iv_rhash_bot:main
     restart: always
     environment:
       BOT_TOKEN: ${BOT_TOKEN}
