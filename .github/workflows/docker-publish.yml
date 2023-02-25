@@ -94,3 +94,15 @@ jobs:
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
         run: echo "${{ steps.meta.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
+        
+      - uses: sigstore/cosign-installer@main
+
+      - name: Write signing key to disk (only needed for `cosign sign --key`)
+        run: echo "${{ secrets.COSIGN_SECRET }}" > cosign.key
+
+      - name: Sign container image
+        run: |
+          cosign sign --key cosign.key \
+            ghcr.io/tetsuhou/iv_rhash_bot:main
+        env:
+          COSIGN_PASSWORD: ""
