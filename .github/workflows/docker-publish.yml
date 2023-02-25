@@ -105,4 +105,4 @@ jobs:
           cosign sign --key cosign.key \
             ghcr.io/tetsuhou/iv_rhash_bot:main
         env:
-          COSIGN_PASSWORD: ""
+          COSIGN_PASSWORD: "${{ secrets.COSIGN_PASSWORD }}"
